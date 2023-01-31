@@ -3,17 +3,9 @@
 {% block content %}
 <section>
   <div class="container">
-    <div class="row mt-3">
-    <div class="col-md-4 mt-3">
-        <div class="sidebar margin-1">
-            <!--sidebar-->
-            {% include 'blog_latest.html' with most_recent=most_recent %}
-            <br>
-            {% include 'blog_featured.html' with featured=featured %}
-        </div>
-    </div>
+    <div class="row d-flex justify-content-center mt-3">
     
-    <div class="col-md-8 main-lg">
+    <div class="col-md-10 main-lg">
     <div class="d-flex justify-content-between align-items-center py-3 margin-2">
       <h4 class="title3">Search by keyword</h4>
       <a class="search-btn" href="{% url 'create_tab' %}">Add Tab</a>
