@@ -1,11 +1,5 @@
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block title %} | Register {% endblock %}
-
-{% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block title %} | Register {%
+endblock %} {% block content %}
 
 <style>
   .card {
@@ -13,8 +7,8 @@
     border: none;
     -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
     -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
-    box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22)
-}
+    box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+  }
 </style>
 
 <section>
@@ -26,33 +20,73 @@
             <h4><i class="fas fa-user-plus"></i> Register</h4>
           </div>
           <div class="card-body">
-              <form action="{% url 'register' %}" method="POST">
-                      {% csrf_token %}
-                <div class="form-group">
+            <form action="{% url 'register' %}" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
                 <label for="first_name">First Name</label>
-                <input type="text" name="first_name" class="form-control" required>
+                <input
+                  type="text"
+                  name="first_name"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="last_name">Last Name</label>
-                <input type="text" name="last_name" class="form-control" required>
+                <input
+                  type="text"
+                  name="last_name"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="form-control" required>
+                <input
+                  type="text"
+                  name="username"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="form-control" required>
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="password2">Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="password">Confirm Password</label>
-                <input type="password" name="password2" class="form-control" required>
+                <input
+                  type="password"
+                  name="password2"
+                  class="form-control"
+                  required
+                />
               </div>
-              <input type="submit" value="Register" class="btn btn-secondary btn-block">
+              <input
+                type="submit"
+                value="Register"
+                class="btn btn-secondary btn-block"
+              />
+
+              <div class="d-flex justify-content-between py-3">
+                <p>
+                  Already have an account? <a href="{% url 'login' %}">Login</a>
+                </p>
+              </div>
             </form>
           </div>
         </div>
