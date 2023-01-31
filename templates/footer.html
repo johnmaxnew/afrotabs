@@ -1,0 +1,61 @@
+{% load static %} {% block content %}
+<!-- Footer -->
+<footer class="footer margin-1">
+  <div class="container py-5">
+    <div class="row py-4">
+      <div class="col-lg-6 col-md-6 mb-4 px-5 mb-lg-0">
+        <a class="navbar-brand mb-4 ml-0" href="{% url 'home_index' %}">
+          <h3>AfroTabs</h3>
+          <!-- <img src="{% static 'img/logo-f.png' %}" alt="logo" width="270" /> -->
+        </a>
+        <p>
+          AfroTabs allows songwriters and music ethusiasts to publish lyrics for
+          the public.
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h6 class="text-uppercase font-weight-bold mb-4 title4">Publish</h6>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-2"><a href="#">Lyrics</a></li>
+          <li class="mb-2"><a href="#">Notes</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h6 class="text-uppercase font-weight-bold mb-4 title4">Links</h6>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-2"><a href="{% url 'home_index' %}">Home</a></li>
+          <li class="mb-2"><a href="{% url 'about' %}">About Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+        <h6 class="text-uppercase font-weight-bold mb-4 title4">Links</h6>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-2"><a href="{% url 'contact' %}">Contact Us</a></li>
+          <li class="mb-2"><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyrights -->
+  <div class="py-4 copyright">
+    <div class="container text-center">
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="mb-0 py-2">
+          Copyright &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          All rights reserved | AfroTabs
+        </p>
+        <div class="mini-links">
+          <a href="{% url 'cookie' %}">Cookie Policy</a> |
+          <a href="{% url 'terms' %}">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- End -->
+
+{% endblock content %}

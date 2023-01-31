@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container margin-3">
+        <h6>{{ home.title }}</h6>
+        <div class="row">
+            <div class="col-md-8">
+                <img src="{{ home.image.url }}" alt="" width="100%">
+            </div>
+            <div class="col-md-4">
+                <h5>Home:</h5>
+                <p>{{ home.description | striptags }}</p>
+                <br>
+                <h5>Technology used:</h5>
+                <p>{{ home.technology }}</p>
+            </div>
+        </div>
+        </div>        
+</section>
+{% endblock content %}

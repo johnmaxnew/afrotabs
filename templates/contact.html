@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row margin-1 d-flex justify-content-center">
+
+          <div class="col-md-8 margin-1">
+              <h3><strong>{{ contact.title }}</strong></h3>
+              <p>{{ contact.body | striptags | linebreaks }}</p>
+              <!-- GET IN TOUCH -->
+              <div class="contact">
+                  <h3><strong>Get in touch</strong></h3>
+                  <form class="" action="" method="post" autocomplete="on">
+                      {% csrf_token %}
+                      <div class="input-box">
+                          <input type="text" name="first_name" required id="id_first_name" value="" placeholder="First Name">
+                          <input type="text" name="last_name" required id="id_last_name" value="" placeholder="Last Name">
+                      </div>
+                      <div class="input-box">
+                          <input type="email" name="email_address" required id="id_email_address" value="" placeholder="Your Email">
+                          <input type="text" name="subject" required id="id_subject" value="" placeholder="Subject">
+                      </div>
+                      <textarea name="message" required id="id_message" rows="30" cols="10" placeholder="Message"></textarea>
+                      <a href="#" class="btn" type="submit">submit</a>
+                  </form>
+              </div>
+              <!-- GET IN TOUCH -->
+          </div>
+        </div>
+      </div>      
+</section>
+{% endblock content %}
+
+

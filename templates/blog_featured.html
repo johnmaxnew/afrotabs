@@ -1,0 +1,8 @@
+<h5 class="title1">Featured</h5>
+<ul class="list-group">
+  {% for tab in featured %}
+  <li class="list-group-item">
+    <a href="{% url 'detail' tab.slug %}" class="post-title">{{ tab.title }}</a>
+  </li>
+  {% endfor %}
+</ul>

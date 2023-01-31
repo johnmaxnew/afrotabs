@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block content %}
+<section>
+  <div class="container">
+    <div class="row mt-3">
+    <div class="col-md-4 mt-3">
+        <div class="sidebar margin-1">
+            <!--sidebar-->
+            {% include 'blog_latest.html' with most_recent=most_recent %}
+            <br>
+            {% include 'blog_featured.html' with featured=featured %}
+        </div>
+    </div>
+    
+    <div class="col-md-8 main-lg">
+    <div class="d-flex justify-content-between align-items-center py-3 margin-2">
+      <h4 class="title3">Search by keyword</h4>
+      <a class="search-btn" href="{% url 'create_tab' %}">Add Tab</a>
+    </div>
+    <hr>
+      <form class="search" action="" method="GET">
+        <input type="text" class="search-input" placeholder="Enter keyword..." name="title__icontains" id="id_title__icontains" value="">
+        <button type="submit" class="search-btn" name="button">Search</button>
+      </form>
+    
+      <div class="main">
+        {% for tab in tabs %}
+        <div class="list-group list-group-flush border-bottom scrollarea style-3">
+          <a href="#" class="py-3">
+            <div
+              class="d-flex w-100 align-items-center justify-content-between px-4"
+            >
+              <img
+                src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                class="rounded-circle"
+                width="50"
+                alt="User"
+              />
+              <div class="media-body col-8">
+                <strong class="tab-title"
+                  ><a href="{% url 'detail' tab.slug %}">{{ tab.title }}</a></strong
+                >
+                <div class="small py-1">Artiste: {{ tab.artiste }}</div>
+              </div>
+
+              <div class="info col-4">
+                <div class="d-flex justify-content-between py-1">
+                  <small class="text-muted"
+                    >Tab by <a href="">{{ tab.author }}</a>
+                  </small>
+                  <small class="text-muted">{{ tab.created_at|date }}</small>
+                </div>
+
+                <div class="d-flex justify-content-between py-1">
+                  <small class="text-muted">Comments</small>
+                  <small class="text-muted">Likes</small>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+        <!-- PAGINATION -->
+        <div class="d-flex justify-content-center align-items-center mt-3">
+            <nav aria-label="...">
+            {% if tabs.has_other_pages %}
+              <ul class="pagination">
+                  {% if tabs.has_previous %}
+                      <li class="page-item"><a class="page-link" href="?page={{ tabs.previous_page_number }}">Previous</a></li></span></li>
+                  {% else %}
+                      <li class="page-item disabled"></li>
+                  {% endif %}
+  
+                  {% for pages in tabs.paginator.page_range %}
+                      {% if tabs.number == pages %}
+                        <li class="page-item"><a class="page-link" href="#">{{pages}}</a></li></span></li>
+                      {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{pages}}">{{pages}}</a></li>
+                      {% endif %}
+                  {% endfor %}
+  
+                  {% if tabs.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ tabs.next_page_number }}">Next</a></li>
+                  {% else %}
+                    <li class="page-item disabled"></li>
+                  {% endif %}
+              </ul>
+              {% endif %}
+            </nav>
+        </div>
+    
+    
+
+        </div>
+  
+    
+      
+      </div>
+    
+      </div>
+      </div>
+      </div>
+    
+</section>
+{% endblock content %}
+
+
+
+<!-- TODO -->
+
+<!-- Make tags work
+<small>{{tab.tags}}</small> -->
+
+
+
+

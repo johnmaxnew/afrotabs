@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block content %}
+<section>
+  <div class="container">
+    <div class="row d-flex justify-content-center mt-3">
+    
+    <div class="col-md-8 main-lg">
+    <div class="d-flex justify-content-between align-items-center py-3 margin-2">
+      <h3 class="title2">Add Lyrics</h3>
+    </div>
+    <hr>
+    
+      <div class="main">
+        <div class="card style-3 mt-3">
+            <div class="card-body p-5">
+
+              <!-- FORM -->
+              <form method="post">
+                {% csrf_token %} {{ form.as_p }}
+                <input class="search-btn" type="submit" value="Create" />
+              </form>
+              <!-- FORM END -->
+
+            </div>
+        </div>
+        
+        </div>
+      </div>
+    
+      </div>
+      </div>
+      </div>
+    
+</section>
+{% endblock content %}
+
+
+
+

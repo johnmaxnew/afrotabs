@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<section>
+  <div class="col-md-8 offset-md-2 margin-3">
+    <h3>{{ category | title }}</h3>
+    <hr />
+    {% for tab in tabs %}
+    <div class="card style-2 mt-3">
+      <div class="card-body">
+        <h5 class="title2">
+          <a href="{% url 'tab_detail' tab.slug %}">{{ tab.title }}</a>
+        </h5>
+
+        <small class="mt-2">
+          {{ tab.created_at.date }} |&nbsp; Tag:&nbsp; {% for category in
+          tab.categories.all %}
+          <a href="{% url 'tab_category' category.name %}" class="p-tag">
+            {{ category.name }} </a
+          >&nbsp; {% endfor %}
+        </small>
+
+        <br />
+        <p class="mt-2">{{ tab.body | striptags | slice:":400" }}...</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock content %}
