@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     
     'accounts',
 
-    # 'blog',
-    # 'topics',
     'tabs',
     'tinymce',
     'marketing',
@@ -132,7 +130,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = 'var/www/afrotabs/static'
+STATIC_ROOT = '/var/www/afrotabs/static'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
