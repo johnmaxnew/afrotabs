@@ -1,21 +1,17 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
 
 <section class="hero">
   <div class="container hero col-xxl-8 px-4 py-5 mt-3">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
-        <img
-          src="{% static 'img/heroimg.svg' %}"
-          class="d-block mx-lg-auto img-fluid"
-          alt="hero"
-        />
+        <img src="{% static 'img/heroimg.svg' %}" class="d-block mx-lg-auto img-fluid" alt="hero" />
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">A Song Lyrics Database</h1>
-        <p class="lead">
-          Publish your favorite Song's Lyrics as Tabs And Access A Repository Of
-          Aggregated Lyrics by Other Users.
-        </p>
+        <p class="lead">Publish your favorite Song's Lyrics as Tabs And Access A Repository Of Aggregated Lyrics by Other Users.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <a href="{% url 'tab_index' %}" class="cta">View Tabs</a>
         </div>
@@ -37,20 +33,10 @@
         <div class="content">
           <h3>What to expect</h3>
           <ul class="">
-            <li>
-              <i class="fa fa-check-circle" aria-hidden="true"></i>Curated
-              Lyrics
-            </li>
-            <li>
-              <i class="fa fa-check-circle" aria-hidden="true"></i>Music Notes
-            </li>
-            <li>
-              <i class="fa fa-check-circle" aria-hidden="true"></i>A Community
-            </li>
-            <li>
-              <i class="fa fa-check-circle" aria-hidden="true"></i>Samples to
-              work with
-            </li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i>Curated Lyrics</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i>Music Notes</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i>A Community</li>
+            <li><i class="fa fa-check-circle" aria-hidden="true"></i>Samples to work with</li>
           </ul>
         </div>
       </div>

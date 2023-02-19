@@ -1,51 +1,51 @@
-{% extends "base.html" %} {% load static %} {% block content %}
-<section>
-  <div class="container">
-    <div class="row margin-1">
-      <div class="col-md-4">
-        <div class="sidebar margin-1">
-          <div class="card">
-            <div class="panel">
-              <h5>Content</h5>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section>
+    <div class="container">
+      <div class="row margin-1">
+        <div class="col-md-4">
+          <div class="sidebar margin-1">
+            <div class="card">
+              <div class="panel">
+                <h5>Content</h5>
+              </div>
             </div>
+            <!--sidebar-->
+            <!-- {% include 'blog_related.html' with similar_posts=similar_posts %} {% -->
+            <!-- include 'blog_latest.html' with most_recent=most_recent %} -->
           </div>
-          <!--sidebar-->
-          <!-- {% include 'blog_related.html' with similar_posts=similar_posts %} {% -->
-          <!-- include 'blog_latest.html' with most_recent=most_recent %} -->
+        </div>
+        <div class="col-md-8 margin-1">
+          <h5 class="title2">{{ tab.title }}</h5>
+          <small class="mt-2">
+            Posted by <a href="">{{ tab.author }}</a> on {{ tab.created_at|date }}&nbsp;
+          </small>
+
+          <p>{{ tab.body | striptags | linebreaks | safe }}</p>
+          <!-- {{tab.body | safe }} -->
+
+          <!-- COMMENT -->
+          <h6 class="py-3">Leave a comment:</h6>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">{{ form.author }}</div>
+            <div class="form-group">{{ form.body }}</div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <h6 class="py-3">Comments:</h6>
+          {% for comment in comments %}
+          <p>
+            On {{ tab.created_at|date }}
+            <b>{{ comment.author }}</b> wrote:
+          </p>
+          <p>{{ comment.body }}</p>
+          <hr />
+          {% endfor %}
+          <!-- COMMENT END -->
         </div>
       </div>
-      <div class="col-md-8 margin-1">
-        <h5 class="title2">{{ tab.title }}</h5>
-        <small class="mt-2">
-          Posted by <a href="">{{ tab.author }}</a> on {{ tab.created_at|date }}
-          &nbsp;
-        </small>
-
-        <p>{{ tab.body | striptags | linebreaks | safe }}</p>
-        <!-- {{tab.body | safe }} -->
-
-        <!-- COMMENT -->
-
-        <h6 class="py-3">Leave a comment:</h6>
-        <form method="POST">
-          {% csrf_token %}
-          <div class="form-group">{{ form.author }}</div>
-          <div class="form-group">{{ form.body }}</div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <h6 class="py-3">Comments:</h6>
-        {% for comment in comments %}
-        <p>
-          On {{ tab.created_at|date }}
-
-          <b>{{ comment.author }}</b> wrote:
-        </p>
-        <p>{{ comment.body }}</p>
-        <hr />
-        {% endfor %}
-        <!-- COMMENT END -->
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 {% endblock content %}

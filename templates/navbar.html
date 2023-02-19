@@ -1,21 +1,14 @@
-{% load static %} {% block content %}
+{% load static %}
+
+{% block content %}
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand text-dark" href="{% url 'home_index' %}"
-      ><h3>AfroTabs</h3>
+    <a class="navbar-brand text-dark" href="{% url 'home_index' %}">
+      <h3>AfroTabs</h3>
       <!-- <img src="{% static 'img/nwrco.png' %}" alt="logo" /> -->
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      style="outline: none"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline: none">
       <img src="{% static 'img/menu.svg' %}" height="25" alt="logo" />
     </button>
 
@@ -35,15 +28,10 @@
       <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}"
-            >Welcome, {{user.first_name}}</a
-          >
+          <a class="nav-link" href="{% url 'dashboard' %}">Welcome, {{user.first_name}}</a>
         </li>
         <li class="nav-item">
-          <a
-            href="javascript:{document.getElementById('logout').submit()}"
-            class="nav-link"
-          >
+          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
             <i class="fas fa-sign-out-alt"></i>Logout
           </a>
           <form action="{% url 'logout' %}" method="POST" id="logout">
@@ -54,13 +42,8 @@
         {% else %}
         <li class="nav-item">
           <div class="mobile-auth d-flex">
-            <a href="{% url 'login' %}" class="card-btn-4 mr-3 hovec3">
-              Login
-            </a>
-            <a
-              href="{% url 'register' %}"
-              class="card-btn-5 hovec3 d-flex align-items-center"
-            >
+            <a href="{% url 'login' %}" class="card-btn-4 mr-3 hovec3">Login</a>
+            <a href="{% url 'register' %}" class="card-btn-5 hovec3 d-flex align-items-center">
               <i class="fas fa-user-plus"></i>
               Register
             </a>
