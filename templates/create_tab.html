@@ -1,38 +1,179 @@
 {% extends "base.html" %}
 {% load bootstrap %}
 {% block content %}
+
+<!-- STYLE  -->
+<style>
+
+#contactus {
+    background: #F9F9F9;
+    padding: 25px;
+    margin: 150px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)
+}
+
+#contactus {}
+
+#contactus h3 {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 10px
+}
+
+#contactus h4 {
+    margin: 5px 0 15px;
+    display: block;
+    font-size: 13px;
+    font-weight: 400
+}
+
+.fields {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%
+}
+
+#contactus input[type="text"],
+
+#contactus textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px
+}
+
+#contactus input[type="text"]:hover,
+
+#contactus textarea:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #aaa
+}
+
+#contactus textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none
+}
+
+#contactus button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: var(--text-light-2);
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px
+}
+
+#contactus button[type="submit"]:hover {
+    background: #000;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out
+}
+
+#contactus button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5)
+}
+
+#contactus input:focus,
+#contactus textarea:focus {
+    outline: 0;
+    border: 1px solid #aaa
+}
+
+::-webkit-input-placeholder {
+    color: #888
+}
+
+:-moz-placeholder {
+    color: #888
+}
+
+::-moz-placeholder {
+    color: #888
+}
+
+:-ms-input-placeholder {
+    color: #888
+}
+</style>
+
+
+
 <section>
   <div class="container">
-    <div class="row d-flex justify-content-center mt-3">
+    <div class="row d-flex justify-content-center">
     
-    <div class="col-md-8 main-lg">
-    <div class="d-flex justify-content-between align-items-center py-3 margin-2">
-      <h3 class="title2">Add Lyrics</h3>
-    </div>
-    <hr>
-    
-      <div class="main">
-        <div class="card style-3 mt-3">
-            <div class="card-body p-5">
+      <div class="col-md-8 main-lg">
+        <div class="main">
+
 
               <!-- FORM -->
-              <form method="post">
-                {% csrf_token %} {{ form.as_p }}
-                <input class="search-btn" type="submit" value="Create" />
+              <form id="contactus" action="" method="post">
+                <h3>Add Lyrics</h3>
+                {% csrf_token %} 
+
+                <!-- {{ form.as_p }} -->
+                <input type="text" name="title" placeholder="Song Title" maxlength="255" required id="id_title">
+                <input type="text" name="artiste" placeholder="Artiste" maxlength="255" required id="id_artiste">
+                <input type="text" name="tags" placeholder="Tags" required id="id_tags"> <span class="helptext">A comma-separated list of tags.</span>
+                <textarea class="tinymce" cols="40" placeholder="Type your lyrics here..." data-mce-conf="{&quot;theme&quot;: &quot;silver&quot;, &quot;height&quot;: 500, &quot;menubar&quot;: false, &quot;plugins&quot;: &quot;advlist,autolink,lists,link,image,charmap,print,preview,anchor,searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,code,help,wordcount&quot;, &quot;toolbar&quot;: &quot;undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help&quot;, &quot;spellchecker_languages&quot;: &quot;Afrikaans=af,Arabic / Algerian Arabic=ar,Asturian=as,Azerbaijani=az,Bulgarian=bg,Belarusian=be,Bengali=bn,Breton=br,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Lower Sorbian=ds,Greek=el,+English / Australian English / British English=en,Esperanto=eo,Spanish / Argentinian Spanish / Colombian Spanish / Mexican Spanish / Nicaraguan Spanish / Venezuelan Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Scottish Gaelic=gd,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Upper Sorbian=hs,Hungarian=hu,Armenian=hy,Interlingua=ia,Indonesian=id,Igbo=ig,Ido=io,Icelandic=is,Italian=it,Japanese=ja,Georgian / Kabyle=ka,Kazakh=kk,Khmer=km,Kannada=kn,Korean=ko,Kyrgyz=ky,Luxembourgish=lb,Lithuanian=lt,Latvian=lv,Macedonian=mk,Malayalam=ml,Mongolian=mn,Marathi=mr,Burmese=my,Norwegian Bokm\u00e5l=nb,Nepali=ne,Dutch=nl,Norwegian Nynorsk=nn,Ossetic=os,Punjabi=pa,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Swahili=sw,Tamil=ta,Telugu=te,Tajik=tg,Thai=th,Turkmen=tk,Turkish=tr,Tatar=tt,Udmurt=ud,Ukrainian=uk,Urdu=ur,Uzbek=uz,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh&quot;, &quot;directionality&quot;: &quot;ltr&quot;, &quot;mode&quot;: &quot;exact&quot;, &quot;strict_loading_mode&quot;: 1, &quot;elements&quot;: &quot;id_body&quot;}" id="id_body" name="body" rows="10"></textarea>
+                
+
+                <input class="search-btn w-100" type="submit" value="Create" />
               </form>
               <!-- FORM END -->
 
-            </div>
-        </div>
-        
+
+              <!-- NEW FORM -->
+              <!-- <form id="contactus" action="" method="post">
+                {% csrf_token %} 
+                  <h3>Add Lyrics</h3>
+                  <fieldset> <input placeholder="Title" type="text" name="title" maxlength="255" id="id_title" tabindex="1" required autofocus> </fieldset>
+                  <fieldset> <input placeholder="Artist" type="text" name="artiste" maxlength="255" id="id_artiste" tabindex="2" required> </fieldset>
+                  <fieldset> <textarea placeholder="Type your lyrics here..." name="body" id="id_body" tabindex="5" required></textarea> </fieldset>
+                  <fieldset> 
+                    <button name="submit" type="submit" value="Create" id="contactus-submit" data-submit="...Sending"><i id="icon" class=""></i> Submit</button> 
+                  </fieldset>
+              </form> -->
+              <!-- NEW FORM END -->
         </div>
       </div>
     
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
     
 </section>
+
+
+<script>
+$(document).ready(function(){
+  $("#contactus-submit").click(function(){
+   var r= $('<i class="fa fa-spinner fa-spin"></i>');   
+   $("#contactus-submit").html(r);
+    $("#contactus-submit").append(" Sending...");
+    $("#contactus-submit").attr("disabled", true);
+  
+   
+   setTimeout(function(){ 
+      $("#contactus-submit").attr("disabled", false); 
+     $("#contactus-submit").html('Send');
+       
+   }, 3000);
+   
+  
+  });
+});
+</script>
+
 {% endblock content %}
 
 
