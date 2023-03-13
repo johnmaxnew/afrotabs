@@ -4,11 +4,12 @@ from django.urls import reverse
 from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
 from django.utils.text import slugify
-
+import uuid
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
-    slug = models.SlugField(max_length = 250, null = True, blank = True)
+    # slug = models.SlugField(max_length = 250, null = True, blank = True)
+    slug = models.SlugField(max_length = 250, unique=True, default=uuid.uuid1)
 
     class Meta:
         verbose_name_plural='Categories'
@@ -30,7 +31,8 @@ class Tab(models.Model):
     featured = models.BooleanField(default=False)
     categories = models.ManyToManyField('Category', related_name='tabs')
     tags = TaggableManager()
-    slug = models.SlugField(max_length = 250, null = True, blank = True)
+    # slug = models.SlugField(max_length = 250, null = True, blank = True)
+    slug = models.SlugField(max_length = 250, unique=True, default=uuid.uuid1)
 
 
     def save(self, *args, **kwargs):
